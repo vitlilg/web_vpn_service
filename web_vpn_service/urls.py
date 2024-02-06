@@ -23,6 +23,7 @@ from web_vpn_service import settings
 urlpatterns = [
     path('api/v1/admin/', admin.site.urls),
     path('api/v1/auth/', include('apps.authentications.api.v1.urls')),
+    path('api/v1/proxy/', include('apps.proxy.api.v1.urls')),
     path('api/v1/users/', include('apps.users.api.v1.urls')),
     path('api/v1/web_cabinet/', include('apps.web_cabinet.api.v1.urls')),
     path('api/v1/websites/', include('apps.websites.api.v1.urls')),

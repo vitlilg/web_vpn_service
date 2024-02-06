@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'apps.services',
     'apps.web_cabinet',
     'apps.websites',
+    'apps.proxy',
 
 ]
 
