@@ -7,7 +7,7 @@ services:
     image: vitlilg/web_vpn_service:latest
     container_name: vpn-service-django
     env_file:
-      - docker.env
+      - .docker.env
     restart: unless-stopped
     volumes:
       - .:/usr/src/app
