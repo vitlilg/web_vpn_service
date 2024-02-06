@@ -140,3 +140,4 @@ media/
 
 # Vscode
 .vscode
+.docker.env
