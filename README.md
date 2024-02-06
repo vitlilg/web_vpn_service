@@ -74,6 +74,11 @@ python manage.py migrate
 celery -A web_vpn_service worker --loglevel=INFO
 ```
 
+## Swagger
+Для переходу до сторінки автодокументації у браузері потрібно ввести, наприклад:
+http://localhost:8000/api/v1/swagger/,
+де http://localhost:8000/ - url адреса вашого backend серверу.
+
 ## Docker
 Для запуску контейнера необхідно створити в корені проекту файл .docker.env на основі цього файлу [.docker.env.example](./.docker.env.example)
 У файлі docker-compose.yml у строці *image: vitlilg/web_vpn_service:latest* замість vitlilg вставити назву свого облікового запису для docker.
