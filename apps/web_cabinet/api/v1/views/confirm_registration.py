@@ -4,12 +4,12 @@ from rest_framework.response import Response
 
 from apps.users.models.statement_registration import CustomerStatementRegistration, SecurityCode
 from apps.users.tasks.registration import registration_from_statement
-from apps.web_cabinet.api.v1.serializers.confirm_registration import ConfirmSailorRegistrationSerializer
+from apps.web_cabinet.api.v1.serializers.confirm_registration import ConfirmCustomerRegistrationSerializer
 
 
 class ConfirmCustomerRegistrationView(GenericAPIView):
     permission_classes = (permissions.AllowAny,)
-    serializer_class = ConfirmSailorRegistrationSerializer
+    serializer_class = ConfirmCustomerRegistrationSerializer
 
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)

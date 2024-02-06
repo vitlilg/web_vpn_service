@@ -8,7 +8,7 @@ from apps.web_cabinet.exceptions import (
 )
 
 
-class ConfirmSailorRegistrationSerializer(serializers.Serializer):
+class ConfirmCustomerRegistrationSerializer(serializers.Serializer):
     security_code = serializers.IntegerField()
     email = serializers.EmailField()
 
