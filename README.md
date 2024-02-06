@@ -31,7 +31,7 @@
 |    /3    |   CELERY_BROKER_URL   | 5.0.1  |
 |    /4    | CELERY_RESULT_BACKEND | 5.0.1 |
 
-# Запуск проекту
+# Налаштування проекту
 ## Змінні оточення
 Мінімальні вимоги для запуску проекту
 ```bash
@@ -68,11 +68,18 @@ pre-commit install
 python manage.py migrate
 ```
 
+# Запуск проекту
 ## Celery
 Для відкладених завдань запустіть сервіс celery worker
 ```bash
 celery -A web_vpn_service worker --loglevel=INFO
 ```
+
+Зробіть запуск серверу backend за допомогою команди
+```bash
+python3 manage.py runserver 0.0.0.0:8000
+```
+
 
 ## Swagger
 Для переходу до сторінки автодокументації у браузері потрібно ввести, наприклад:
