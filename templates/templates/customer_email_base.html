@@ -1,0 +1,130 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Simple VPN Service</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+      body {
+          width: 100% !important;
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+          margin: 0;
+          padding: 0;
+          line-height: 100%;
+          cursor: default;
+      }
+
+      [style*="Inter"] {
+          font-family: 'Inter', arial, sans-serif !important;
+      }
+
+      img {
+          outline: none;
+          text-decoration: none;
+          border: none;
+          -ms-interpolation-mode: bicubic;
+          max-width: 100% !important;
+          margin: 0;
+          padding: 0;
+          display: block;
+          width: 100%;
+      }
+
+      table td {
+          border-collapse: collapse;
+      }
+
+      table {
+          border-collapse: collapse;
+          mso-table-lspace: 0pt;
+          mso-table-rspace: 0pt;
+      }
+
+      .text-line {
+          margin: 0;
+          font-size: 20px;
+      }
+      @media (max-width: 700px) {
+          .text-line {
+              font-size: 17px;
+          }
+      }
+
+  </style>
+</head>
+<body style="margin: 0; padding: 0; text-align: center; max-width: 100%; width: 100%" bgcolor="#303030">
+<table cellpadding="0" cellspacing="0" width="100%" align="center" style="margin: 0; padding: 0">
+  <tr>
+    <td align="center">
+      <table class="main table-600" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff"
+             style="max-width: 600px; width: 100%;">
+        <tr>
+          <td align="center">
+            <img src="#" alt="SimpleVPNService">
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-top: 10px" align="center">
+            <table cellpadding="0" cellspacing="0" align="center"
+                   style="max-width: 100%; width: 352px;">
+              <tr>
+                <td align="center">
+                  <table cellpadding="0" cellspacing="0" width="103" align="left">
+                    <tr>
+                      <td class="logo" align="center" height="33">
+                        <a href="#" target="_blank" style="text-align: center">
+                          <img src="#" alt="Logo" style="max-width: 103px; text-align: center; margin-top: 0; margin-bottom: 0; margin-left: auto; margin-right: auto" width="103" height="40" />
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding-top: 32px; padding-bottom: 12px; margin: 0" align="center">
+                  <p class="text-line" style="font-size: 24px; font-family: Arial, Helvetica, sans-serif, 'Inter'; font-weight: 500; line-height: 32px; text-align: start; color: #141416;">
+                    Best regards, Simple VPN Service!
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td align="center">
+                  {% block heading %}
+                  {% endblock %}
+                </td>
+              </tr>
+              <tr>
+                <td align="center" style="padding: 32px 0 32px 0;">
+                  {% block main_content %}
+                  {% endblock %}
+                </td>
+              </tr>
+              <tr>
+                <td align="center">
+                  {% block footering %}
+                  {% endblock %}
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <tr>
+              <td align="center" style="padding-top: 24px;">
+                <hr color="#d6d6d6">
+                <h1 style="font-family: Arial, Helvetica, sans-serif, 'Inter'; font-weight: 400; font-size: 12px; line-height: 16px; text-align: start; color: #777E91; padding: 32px;">
+                  Please do not reply to this email If you would like to unsubscribe, please click here <br>
+                  Read our Terms of Service and Privacy Policy.
+                </h1>
+              </td>
+            </tr>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

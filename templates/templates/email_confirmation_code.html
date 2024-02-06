@@ -1,0 +1,27 @@
+{% extends "templates/customer_email_base.html" %}
+
+{% block heading %}
+    <h1 style="font-family: Arial, Helvetica, sans-serif, 'Inter'; font-weight: 400; font-size: 14px; line-height: 20px; text-align: start; color: #141416;">
+        Dear, <span>{{ full_name }}</span>
+    </h1>
+{% endblock %}
+
+{% block main_content %}
+    <h1 style="font-family: Arial, Helvetica, sans-serif, 'Inter'; font-weight: 400; font-size: 14px; line-height: 20px; text-align: start; color: #141416;">
+        Verification code for you email address:
+    </h1>
+    <div style="display: flex; border: 1px solid #B8CCFF; background-color: #E7EEFF; border-radius: 8px; align-content: center; letter-spacing: 0.6rem;">
+        <p class="text-line" style="margin: 0 auto; padding: 24px; font-family: Arial, Helvetica, sans-serif, 'Inter'; font-weight: 400; font-size: 24px; line-height: 30px; text-align: center; color: #141416;">
+            {{ security_code }}
+        </p>
+    </div>
+{% endblock %}
+
+{% block footering %}
+    <h1 style="font-family: Arial, Helvetica, sans-serif, 'Inter'; font-weight: 400; font-size: 14px; line-height: 20px; text-align: start; color: #141416;">
+        This code will be valid for 30 minutes
+    </h1>
+    <h1 style="font-family: Arial, Helvetica, sans-serif, 'Inter'; font-weight: 400; font-size: 14px; line-height: 20px; text-align: start; color: #141416;">
+        Best regards,<br>Simple VPN Service
+    </h1>
+{% endblock %}

@@ -1,0 +1,54 @@
+version: "3.4"
+
+services:
+
+  django:
+    build: .
+    image: vitlilg/web_vpn_service:latest
+    container_name: vpn-service-django
+    env_file:
+      - .docker.env
+    restart: unless-stopped
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db-host
+
+  db-host:
+    image: postgres:14.9
+    container_name: vpn-service-pgdb
+    command:
+      - "postgres"
+      - "-c"
+      - "port=5433"
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - django-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    ports:
+      - "5433:5433"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4G
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8081:8081"
+
+volumes:
+  django-data:
