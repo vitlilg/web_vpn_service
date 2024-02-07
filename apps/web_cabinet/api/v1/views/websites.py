@@ -1,5 +1,5 @@
 from django.conf import settings
-from rest_framework import viewsets
+from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -23,22 +23,21 @@ class CabinetWebsiteView(viewsets.ModelViewSet, BaseWebsiteViewSet):
         website = self.get_object()
         token = request.auth.key
         headers = self.get_headers(token)
-        response = self.proxy_to_website(website_url=website.url, website_name=website.name, headers=headers)
+        response = self.website_to_proxy(
+            website_url=website.url, website_name=website.name, headers=headers,
+        )
         webpage_size = len(response.content)
         create_history.s(
             website_id=website.pk,
             webpage_size=webpage_size,
             webpage=website.url,
         ).apply_async()
-        return Response(response.content)
+        response_headers = {'Location': f'{response.url}'}
+        return Response(response.content, status=status.HTTP_200_OK, headers=response_headers)
 
     def get_headers(self, token):
         return {'Authorization': f'Token {token}'}
 
-    def proxy_to_website(self, website_url: str, website_name: str, headers: dict):
-        url = f'{settings.HOST_API_DOMAIN}/api/v1/proxy/'
-        json = {
-            'website_name': website_name,
-            'website_url': website_url,
-        }
-        return RequestService.post(url=url, headers=headers, json=json)
+    def website_to_proxy(self, website_url: str, website_name: str, headers: dict):
+        url = f'{settings.HOST_API_DOMAIN}/api/v1/proxy/?website_name={website_name}&website_url={website_url}'
+        return RequestService.get(url=url, headers=headers)
